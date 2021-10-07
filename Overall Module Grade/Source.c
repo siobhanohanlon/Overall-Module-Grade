@@ -4,49 +4,50 @@ void main()
 {
 	//Declare Variables
 	float ass, lab, examW;
-	float assignment, labExam, writtenExam, overAll;
+	float assignment, labExam, writtenExam;
+	float overAll;
 	char grade;
 
 	//Ask User to input Grades and assign to variables
-	printf("Please enter Grade of Assignment\n");
+	printf("Please enter Grade of Assignment\t");
 	scanf("%f", &ass);
 
-	printf("Please enter Grade of Lab Exam\n");
+	printf("Please enter Grade of Lab Exam\t\t");
 	scanf("%f", &lab);
 
-	printf("Please enter Grade of Written Exam\n");
+	printf("Please enter Grade of Written Exam\t");
 	scanf("%f", &examW);
 
 	//Change marks to suit percentages of overall
-	//Written 60%
-	writtenExam = ((examW/100) * 60);
-
+	//Assignment 30%
+	assignment = ((ass / 100) * 30);
+	
 	//Lab 10%
 	labExam = ((lab / 100) * 10);
 
-	//Assignment 30%
-	assignment = ((ass / 100) * 30);
+	//Written 60%
+	writtenExam = ((examW/100)*60);
 
 	//Find overall Mark
 	overAll = (writtenExam + labExam + assignment);
 
 	//Calculate Grade and Display
-	if(overAll >= 70)
+	if(overAll >= 70.0)
 	{
 		grade = 'A';
 	}
 
-	else if(70 > overAll >= 60)
+	else if(overAll >= 60.0 && overAll < 70)
 	{
 		grade = 'B';
 	}
 
-	else if(60 > overAll >= 50)
+	else if(overAll >= 50.0 && overAll < 60)
 	{
 		grade = 'C';
 	}
 
-	else if(50 > overAll >= 40)
+	else if(overAll >= 40.0 && overAll < 50)
 	{
 		grade = 'D';
 	}
@@ -56,5 +57,5 @@ void main()
 		grade = 'E';
 	}
 
-	printf("\n\n Your grade for this module is %c", grade);
+	printf("\n\n Your grade for this module is %c and score was %.2f.\n\n", grade, overAll);
 }
